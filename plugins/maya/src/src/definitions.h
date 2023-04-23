@@ -7,7 +7,9 @@
 #include <iostream>
 #include <stdlib.h>
 #include <stdio.h>
+#ifdef WINNT
 #include <windows.h>
+#endif
 
 #define tm_kxb__id                     0xEA301
 #define tm_kxbci__id                   0xEA302

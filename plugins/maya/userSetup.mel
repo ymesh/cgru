@@ -1,0 +1,6 @@
+if ( !`about -batch` )
+{
+    // CGRU launch
+    string $cmd = ("source \"" + `getenv MAYA_CGRU_LOCATION` + "/cgru.mel\"");
+    catch(`eval $cmd`);
+}

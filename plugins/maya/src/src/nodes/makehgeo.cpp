@@ -20,20 +20,23 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#ifndef WINNT
+	#include <unistd.h>
+#endif
 
 #ifdef NT_PLUGIN
-#include <io.h>
-#define open _open
-#define close _close
-#define read _read
-#define O_RDONLY _O_RDONLY
-#define fstat _fstat
-#define stat _stat
-#ifndef MAYA_VERSION_6_0
-#define atof atofwin
-double atofwin( char *str)
-{ _CRT_DOUBLE value; _atodbl( &value, str); return value.x; }
-#endif
+   #include <io.h>
+   #define open _open
+   #define close _close
+   #define read _read
+   #define O_RDONLY _O_RDONLY
+   #define fstat _fstat
+   #define stat _stat
+   #ifndef MAYA_VERSION_6_0
+      #define atof atofwin
+      double atofwin( char *str)
+      { _CRT_DOUBLE value; _atodbl( &value, str); return value.x; }
+   #endif
 #endif
 #include <iostream>
 
@@ -542,7 +545,7 @@ printf("Trying to get points for %d frame.\n", frame);
    if( !parseFileBuffer( cache[index], false ))
    {
       MGlobal::displayError("Parsing file failed. Export polygons only.");
-      return false;
+      return NULL;
    }
 
 #ifdef _STDOUT_ON

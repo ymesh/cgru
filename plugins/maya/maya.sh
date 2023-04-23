@@ -4,7 +4,7 @@
 export MAYA_CGRU_LOCATION=$PWD
 
 # Set Maya version, to get it default location and setup CGRU scripts path
-export MAYA_VERSION=2014
+export MAYA_VERSION=2022
 
 # Set Maya location
 export MAYA_LOCATION=/usr/autodesk/maya${MAYA_VERSION}${MAYA_ARCH}

@@ -2,7 +2,7 @@
 
 prefix=$PWD/lame
 
-cd lame-*
+cd lame-3.99.5
 
 export LDFLAGS="$LDFLAGS -B/usr/lib/gold-ld/"
 
